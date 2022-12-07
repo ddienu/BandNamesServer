@@ -18,4 +18,9 @@ io.on('connection', client => {
         io.emit('mensaje', { admin: 'Nuevo Mensaje'} );
      });
 
+     client.on( 'emitir-mensaje', payload => {
+         //io.emit( 'nuevo-mensaje', payload );//Emits everyone including the client.
+         client.broadcast.emit('nuevo-mensaje', payload); //Emits everyone except client that emit.
+     })
+
   });
