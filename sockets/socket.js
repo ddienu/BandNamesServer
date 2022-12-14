@@ -23,4 +23,9 @@ io.on('connection', client => {
          client.broadcast.emit('nuevo-mensaje', payload); //Emits everyone except client that emit.
      })
 
+     client.on( 'mandar-mensaje', payload => {
+
+        client.broadcast.emit( 'mandar-mensaje', payload );
+     });
+
   });
